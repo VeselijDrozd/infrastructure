@@ -92,4 +92,4 @@ ansible -i inventory/cicd/hosts.yml nexus -m ping
 
 ### Инвентарь
 
-- В `inventory/cicd/hosts.yml` удалена нестандартная переменная `ansible_connection_type: paramiko`. При необходимости отключить проверку ключа хоста можно раскомментировать `ansible_ssh_common_args: '-o StrictHostKeyChecking=no'` (только для тестовых окружений).
+- Отключена проверка ключа хоста `ansible_ssh_common_args: '-o StrictHostKeyChecking=no'` (только для тестовых окружений).
