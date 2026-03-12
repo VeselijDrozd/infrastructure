@@ -1,0 +1,18 @@
+[Unit]
+Description=nexus service
+After=network.target
+
+[Service]
+Type=forking
+User={{ nexus_user_name }}
+Group={{ nexus_user_group }}
+LimitNOFILE={{ nexus_ulimit }}
+WorkingDirectory={{ nexus_directory_home }}
+Environment="JAVA_HOME={{ nexus_java_home }}"
+Environment="INSTALL4J_JAVA_HOME={{ nexus_java_home }}"
+ExecStart={{ nexus_directory_home }}/bin/nexus start
+ExecStop={{ nexus_directory_home }}/bin/nexus stop
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
